@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            second_tab = new TabPage();
             first_tab = new TabPage();
+            btnEqual = new Button();
             button8 = new Button();
             textBox1 = new TextBox();
             DarkMode = new CheckBox();
             Scientific = new RadioButton();
             radioButton1 = new RadioButton();
-            btnEqual = new Button();
             btnClear = new Button();
             btnSub = new Button();
             btnPlus = new Button();
@@ -56,29 +55,26 @@
             btn2 = new Button();
             btn1 = new Button();
             tab1 = new TabControl();
+            second_tab = new TabPage();
+            pictureBox2 = new PictureBox();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             first_tab.SuspendLayout();
             tab1.SuspendLayout();
+            second_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // second_tab
-            // 
-            second_tab.Location = new Point(4, 34);
-            second_tab.Name = "second_tab";
-            second_tab.Padding = new Padding(3);
-            second_tab.Size = new Size(597, 593);
-            second_tab.TabIndex = 1;
-            second_tab.Text = "About me";
-            second_tab.UseVisualStyleBackColor = true;
             // 
             // first_tab
             // 
             first_tab.BackColor = Color.White;
+            first_tab.Controls.Add(btnEqual);
             first_tab.Controls.Add(button8);
             first_tab.Controls.Add(textBox1);
             first_tab.Controls.Add(DarkMode);
             first_tab.Controls.Add(Scientific);
             first_tab.Controls.Add(radioButton1);
-            first_tab.Controls.Add(btnEqual);
             first_tab.Controls.Add(btnClear);
             first_tab.Controls.Add(btnSub);
             first_tab.Controls.Add(btnPlus);
@@ -105,6 +101,18 @@
             first_tab.TabIndex = 0;
             first_tab.Text = "Calculator";
             first_tab.Click += first_tab_Click;
+            // 
+            // btnEqual
+            // 
+            btnEqual.BackColor = Color.PaleGreen;
+            btnEqual.Font = new Font("Bernard MT Condensed", 21F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEqual.Location = new Point(492, 300);
+            btnEqual.Name = "btnEqual";
+            btnEqual.Size = new Size(79, 279);
+            btnEqual.TabIndex = 48;
+            btnEqual.Text = "=";
+            btnEqual.UseVisualStyleBackColor = false;
+            btnEqual.Click += btnEqual_Click;
             // 
             // button8
             // 
@@ -164,18 +172,6 @@
             radioButton1.UseVisualStyleBackColor = true;
             radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // btnEqual
-            // 
-            btnEqual.BackColor = Color.LightGreen;
-            btnEqual.Font = new Font("Bernard MT Condensed", 21F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEqual.Location = new Point(491, 300);
-            btnEqual.Name = "btnEqual";
-            btnEqual.Size = new Size(80, 275);
-            btnEqual.TabIndex = 37;
-            btnEqual.Text = "=";
-            btnEqual.UseVisualStyleBackColor = false;
-            btnEqual.Click += btnEqual_Click_1;
-            // 
             // btnClear
             // 
             btnClear.BackColor = Color.SkyBlue;
@@ -216,7 +212,7 @@
             // 
             // btnRoot
             // 
-            btnRoot.BackColor = Color.LightGreen;
+            btnRoot.BackColor = Color.YellowGreen;
             btnRoot.Font = new Font("Bernard MT Condensed", 21F, FontStyle.Bold, GraphicsUnit.Point);
             btnRoot.ForeColor = Color.Black;
             btnRoot.Location = new Point(406, 488);
@@ -229,7 +225,7 @@
             // 
             // btnMod
             // 
-            btnMod.BackColor = Color.LightGreen;
+            btnMod.BackColor = Color.YellowGreen;
             btnMod.Font = new Font("Bernard MT Condensed", 17F, FontStyle.Regular, GraphicsUnit.Point);
             btnMod.ForeColor = Color.Black;
             btnMod.Location = new Point(318, 488);
@@ -419,6 +415,52 @@
             tab1.Size = new Size(605, 631);
             tab1.TabIndex = 0;
             // 
+            // second_tab
+            // 
+            second_tab.Controls.Add(pictureBox2);
+            second_tab.Controls.Add(label1);
+            second_tab.Controls.Add(pictureBox1);
+            second_tab.Location = new Point(4, 34);
+            second_tab.Name = "second_tab";
+            second_tab.Padding = new Padding(3);
+            second_tab.Size = new Size(597, 593);
+            second_tab.TabIndex = 1;
+            second_tab.Text = "About me";
+            second_tab.UseVisualStyleBackColor = true;
+            second_tab.Click += second_tab_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.c521b2661c88b5302934b7a31a8a5e36_prev_ui;
+            pictureBox2.Location = new Point(311, 158);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(354, 534);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Constantia", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(-4, 175);
+            label1.Name = "label1";
+            label1.Size = new Size(321, 132);
+            label1.TabIndex = 1;
+            label1.Text = resources.GetString("label1.Text");
+            label1.Click += label1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.cent;
+            pictureBox1.Location = new Point(-14, -67);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(615, 286);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -436,19 +478,20 @@
             first_tab.ResumeLayout(false);
             first_tab.PerformLayout();
             tab1.ResumeLayout(false);
+            second_tab.ResumeLayout(false);
+            second_tab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TabPage second_tab;
         private TabPage first_tab;
         private Button button8;
         private TextBox textBox1;
         private CheckBox DarkMode;
         private RadioButton Scientific;
         private RadioButton radioButton1;
-        private Button btnEqual;
         private Button btnClear;
         private Button btnSub;
         private Button btnPlus;
@@ -468,5 +511,10 @@
         private Button btn2;
         private Button btn1;
         private TabControl tab1;
+        private Button btnEqual;
+        private TabPage second_tab;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

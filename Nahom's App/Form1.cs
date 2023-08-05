@@ -11,8 +11,6 @@
         string result;
         double total;
         string option;
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -62,11 +60,15 @@
                 btn7.ForeColor = Color.DarkGray;
                 btn8.ForeColor = Color.DarkGray;
                 btn9.ForeColor = Color.DarkGray;
-                btnPlus.BackColor = Color.Silver;
-                btnDiv.BackColor = Color.Silver;
-                btnSub.BackColor = Color.Silver;
-                btnMul.BackColor = Color.Silver;
-                btnClear.BackColor = Color.DarkGray;
+                btnPoint.ForeColor = Color.DarkGray;
+                button8.ForeColor = Color.DarkGray;
+                btnPlus.BackColor = Color.Gainsboro;
+                btnDiv.BackColor = Color.Gainsboro;
+                btnSub.BackColor = Color.Gainsboro;
+                btnMul.BackColor = Color.Gainsboro;
+                btnClear.BackColor = Color.DimGray;
+                btnMod.BackColor = Color.Silver;
+                btnRoot.BackColor = Color.Silver;
             }
             if (!DarkMode.Checked)
             {
@@ -84,10 +86,15 @@
                 btn7.ForeColor = Color.White;
                 btn8.ForeColor = Color.White;
                 btn9.ForeColor = Color.White;
+                btnPoint.ForeColor = Color.White;
+                button8.ForeColor = Color.White;
                 btnPlus.BackColor = Color.Gold;
                 btnDiv.BackColor = Color.Gold;
                 btnSub.BackColor = Color.Gold;
                 btnMul.BackColor = Color.Gold;
+                btnClear.BackColor = Color.SkyBlue;
+                btnMod.BackColor = Color.YellowGreen;
+                btnRoot.BackColor = Color.YellowGreen;
             }
         }
 
@@ -114,13 +121,11 @@
             Error();
             textBox1.Text += btn0.Text;
         }
-
         private void btn2_Click_1(object sender, EventArgs e)
         {
             Error();
             textBox1.Text += btn2.Text;
         }
-
         private void btn3_Click_1(object sender, EventArgs e)
         {
             Error();
@@ -207,9 +212,7 @@
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
-
         private void btnSub_Click_1(object sender, EventArgs e)
         {
             Error();
@@ -258,30 +261,37 @@
                     textBox1.Clear();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
         }
-
         private void btnMul_Click_1(object sender, EventArgs e)
         {
             Error();
             EnabledButtons();
             try
             {
-                num1 = Convert.ToDouble(textBox1.Text);
-                option = "*";
-                textBox1.Clear();
+                if (Scientific.Checked)
+                {
+                    num1 = Convert.ToDouble(textBox1.Text);
+                    double ans = Math.Sin(num1);
+                    result = ans.ToString("F2");
+                    textBox1.Text = result;
+                }
+                else
+                {
+                    num1 = Convert.ToDouble(textBox1.Text);
+                    option = "*";
+                    textBox1.Clear();
+                }
             }
-            
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-
         private void btnMod_Click_1(object sender, EventArgs e)
         {
             Error();
@@ -292,12 +302,11 @@
                 option = "%";
                 textBox1.Clear();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-
         private void btnRoot_Click_1(object sender, EventArgs e)
         {
             Error();
@@ -309,17 +318,43 @@
                 string result = Convert.ToString(newNum1);
                 textBox1.Text = result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-
-        private void btnEqual_Click_1(object sender, EventArgs e)
+        private void Error()
         {
             if (textBox1.Text.Contains("Error"))
                 textBox1.Clear();
+        }
 
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Scientific_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Scientific.Checked)
+            {
+                btnPlus.Text = "x^2";
+                btnSub.Text = "x!";
+                btnDiv.Text = "x^y";
+                btnMul.Text = "Sin";
+            }
+            else
+            {
+                btnPlus.Text = "+";
+                btnSub.Text = "−";
+                btnDiv.Text = "/";
+                btnMul.Text = "x";
+            }
+        }
+
+        private void btnEqual_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Contains("Error"))
+                textBox1.Clear();
             try
             {
                 num2 = Convert.ToDouble(textBox1.Text);
@@ -359,36 +394,28 @@
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                textBox1.Text = "Error";
             }
         }
-        private void Error()
-        {
-            if (textBox1.Text.Contains("Error"))
-                textBox1.Clear();
-        }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void second_tab_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Scientific_CheckedChanged(object sender, EventArgs e)
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            if (Scientific.Checked)
-            {
-                btnPlus.Text = "x^2";
-                btnSub.Text = "x!";
-                btnDiv.Text = "x^y";
-                btnMul.Text = "log";
-            }
-            else
-            {
-                btnPlus.Text = "+";
-                btnSub.Text = "−";
-                btnDiv.Text = "/";
-                btnMul.Text = "x";
-            }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
